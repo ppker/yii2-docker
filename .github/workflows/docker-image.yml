@@ -45,6 +45,7 @@ jobs:
            dockerfile-flavour: "debian"
            compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
            pecl-xdebug-suffix: "-beta"
+           pecl-imagick-suffix: "-beta"
            experimental: true
          - php-base-image-version: "8.1-apache"
            dockerfile-flavour: "debian"
@@ -67,6 +68,7 @@ jobs:
            dockerfile-flavour: "debian"
            compose-file: "docker-compose.yml,docker-compose.apache.yml"
            pecl-xdebug-suffix: "-beta"
+           pecl-imagick-suffix: "-beta"
            experimental: true
       fail-fast: false
     env:
