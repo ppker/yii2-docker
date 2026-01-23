@@ -24,52 +24,46 @@ jobs:
        # pecl-mongodb-suffix: ""
        # compose-file: "docker-compose.yml:..."
        include:
-         - php-base-image-version: "8.1-fpm"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
-           experimental: false
-         - php-base-image-version: "8.2-fpm"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
-           experimental: false
-         - php-base-image-version: "8.3-fpm"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
-           pecl-imagick-suffix: "/imagick@master"
-           experimental: false
-         - php-base-image-version: "8.4-fpm"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
-           experimental: false
-         - php-base-image-version: "8.5-fpm"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
-           pecl-xdebug-suffix: "-beta"
-           pecl-imagick-suffix: "-beta"
-           experimental: true
-         - php-base-image-version: "8.1-apache"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.apache.yml"
-           experimental: false
-         - php-base-image-version: "8.2-apache"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.apache.yml"
-           experimental: false
-         - php-base-image-version: "8.3-apache"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.apache.yml"
-           pecl-imagick-suffix: "/imagick@master"
-           experimental: false
-         - php-base-image-version: "8.4-apache"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.apache.yml"
-           experimental: false
-         - php-base-image-version: "8.5-apache"
-           dockerfile-flavour: "debian"
-           compose-file: "docker-compose.yml,docker-compose.apache.yml"
-           pecl-xdebug-suffix: "-beta"
-           pecl-imagick-suffix: "-beta"
-           experimental: true
+          - php-base-image-version: "8.1-fpm"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
+            experimental: false
+          - php-base-image-version: "8.2-fpm"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
+            experimental: false
+          - php-base-image-version: "8.3-fpm"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
+            experimental: false
+          - php-base-image-version: "8.4-fpm"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
+            experimental: false
+          - php-base-image-version: "8.5-fpm"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.fpm-nginx.yml"
+            experimental: true
+          - php-base-image-version: "8.1-apache"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.apache.yml"
+            experimental: false
+          - php-base-image-version: "8.2-apache"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.apache.yml"
+            experimental: false
+          - php-base-image-version: "8.3-apache"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.apache.yml"
+            experimental: false
+          - php-base-image-version: "8.4-apache"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.apache.yml"
+            experimental: false
+          - php-base-image-version: "8.5-apache"
+            dockerfile-flavour: "debian"
+            compose-file: "docker-compose.yml,docker-compose.apache.yml"
+            experimental: true
       fail-fast: false
     env:
       COMPOSE_FILE: ${{ matrix.compose-file }}
@@ -98,7 +92,7 @@ jobs:
       run: echo "PHP_IMAGE_VERSION_SUFFIX=-latest" >> $GITHUB_ENV
     - name: Install
       env:
-        TEST_YII_VERSION: "5df412df2c9b4e60e7ec84008693b94ae472eae6"
+        TEST_YII_VERSION: "41b325516938940572470323da329a14390eb9e7"
       run: |
         git clone https://github.com/yiisoft/yii2 _host-volumes/yii2
         pushd _host-volumes/yii2 && git checkout ${TEST_YII_VERSION} && popd
